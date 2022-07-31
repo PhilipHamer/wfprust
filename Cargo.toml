@@ -1,0 +1,37 @@
+[package]
+name = "wfprust"
+version = "0.1.0"
+authors = ["Philip Hamer <philhamer@gmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+panic = "abort"
+
+[lib]
+path = "src/lib.rs"
+crate-type = ["cdylib"]
+
+[build-dependencies]
+winreg = "0.7.0"
+failure = "0.1.8"
+
+[dependencies]
+kernel-print = "0.1.0"
+kernel-alloc = "0.1.0"
+obfstr = "0.3.0"
+array-init = "2.0.0"
+memoffset = "0.5.4"
+
+[dependencies.winapi]
+git = "https://github.com/Trantect/winapi-rs.git"
+branch = "feature/km"
+features = [
+    "wdm",
+    "ntstatus",
+    "fwp",
+    "ndis",
+    "rpcdce",
+    "basetsd",
+]
